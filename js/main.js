@@ -4,7 +4,8 @@ function solicitar(){
     let dIa = prompt ("Ingrese día");
     let mes = "junio";
     
-    alert(noMbre + " " + "Tu turno es el día" + dIa + " " + mes); 
+    alert(noMbre + " " + "Tu turno es el día" + dIa + " " + mes + ".");
+    Swal.fire(noMbre + " " + "Gracias por tu Reserva" + " " + "Te esperamos" + " " + "😃");
 }
 
 
