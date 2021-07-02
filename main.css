@@ -1,0 +1,23 @@
+*{ 
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
+    height: 700px; 
+    background-image: url('img/pelu1-min.jpg'); 
+    background-repeat: no-repeat;   
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; 
+    opacity: 85%;
+}
+
+h1 {
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px;
+}
