@@ -16,6 +16,11 @@ body {
     opacity: 85%;
 }
 
+.navbar {
+    background-color: white;
+    opacity: 0.6;
+}
+
 h1 {
     color: whitesmoke;
     text-align: center;
