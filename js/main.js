@@ -29,3 +29,30 @@ function solicitar(){
         }
     }
 }
+
+
+function verificar(){
+    for (let i = 1; i <=5; i++) {
+        let nombre2 = prompt("Ingresa tu nombre:");
+        let consulta = parseInt(prompt("Ingresa otra fecha por favor."));
+        let mes2 = "Julio";
+        Swal.fire(nombre2+ " Tenes el Turno N " +i+ " Te esperamos 😉");
+    }
+}
+
+function cortes(){
+    let tipodeCorte = prompt("Ingresa el tipo de Corte:");
+
+    while(tipodeCorte != "ESC" ){
+        switch (tipodeCorte) {
+            case "americana":
+                alert("ELEGISTE AMERICANA");
+                break;
+            case "carre":
+                alert("ELEGISTE CARRE");
+                break;
+            default:
+                alert("Que tipo de corte elegis?");
+        }
+    }
+}
