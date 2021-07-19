@@ -56,3 +56,47 @@ function cortes(){
         }
     }
 }
+
+function tiposCortes(){
+
+    do{
+        let corte = prompt("Ingresa Tipo de Corte:");
+        let precio = parseInt(prompt("Ingrese Precio: "));
+        let iva = 0.21;
+        let precioDescuento;
+        console.log(corte);
+        console.log(precio);
+        
+    if (corte != "" && precio != "") {
+        if (precio >= 3000) {
+            precioDescuento = precio - (precio * 0.10);
+            let total = precioDescuento + incluirImpuesto(precio, iva);
+            console.log(precioDescuento);
+            alert("El Total es: " + "$" +total);
+        } else if (precio >= 4000) {
+            precioDescuento = precio - (precio * 0.15);
+            let total = precioDescuento + incluirImpuesto(precio, iva);
+            console.log(precioDescuento);
+            alert("El Total es: " + "$" +total);   
+        }  else{
+            let total = precio + incluirImpuesto(precio, iva);
+            alert("No existe descuento para este corte.");
+            alert("El Total es: " + "$" + total);
+            }
+        
+        } else {
+            (tiposCortes);
+        }
+        
+        otroMas = confirm("Te gustaria otro corte?");
+    }while (otroMas);  
+
+    function incluirImpuesto(precio, iva) {
+        return precio * iva;
+    }
+
+    tiposCortes();
+} 
+
+    
+
