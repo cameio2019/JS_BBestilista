@@ -1,3 +1,18 @@
+class Formservicios{
+    constructor(corte, color, keratina) {
+        this.corte = corte;
+        this.color = color;
+        this.keratina = keratina;
+    }
+    servicios(){
+        console.log("Elegiste " + (this.corte) + " que tiene promocion e incluye " + (this.color) + " o " +(this.keratina));
+    }
+}     
+let corte2 = new Formservicios("carre", "rojo", "keratina");
+corte2.servicios();
+let corte3 = new Formservicios("alisado", "verde", "keratina");
+corte3.servicios();
+
 function solicitar(){
     let noMbre = prompt ("Ingresa tu nombre:");
     let apeLlido = prompt ("Ingresa tu Apellido:");
@@ -98,5 +113,4 @@ function tiposCortes(){
     tiposCortes();
 } 
 
-    
 
