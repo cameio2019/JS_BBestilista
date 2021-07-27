@@ -100,17 +100,15 @@ function tiposCortes(){
             }
         
         } else {
-            (tiposCortes);
+            tiposCortes();
         }
         
         otroMas = confirm("Te gustaria otro corte?");
-    }while (otroMas);  
+        }while (otroMas);  
 
-    function incluirImpuesto(precio, iva) {
-        return precio * iva;
-    }
-
-    tiposCortes();
+        function incluirImpuesto(precio, iva) {
+            return precio * iva;
+        }
 } 
 
 
