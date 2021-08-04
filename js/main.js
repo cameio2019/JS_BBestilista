@@ -1,5 +1,5 @@
-class Formservicios{
-    constructor(corte, color, keratina) {
+/* class Formservicios{
+        constructor(corte, color, keratina) {
         this.corte = corte;
         this.color = color;
         this.keratina = keratina;
@@ -11,10 +11,10 @@ class Formservicios{
 let corte2 = new Formservicios("carre", "rojo", "keratina");
 corte2.servicios();
 let corte3 = new Formservicios("alisado", "verde", "keratina");
-corte3.servicios();
+corte3.servicios(); */
 
-function solicitar(){
-    let noMbre = prompt ("Ingresa tu nombre:");
+async function solicitar(){
+    /* let noMbre = prompt ("Ingresa tu nombre:");
     let apeLlido = prompt ("Ingresa tu Apellido:");
     var dIa = parseInt(prompt("Ingrese día:",0));
     var hoRa = parseInt(prompt("Ingresa la hora:",0));
@@ -42,6 +42,114 @@ function solicitar(){
         if ((horaCorregida >= 1) && ((horaCorregida <= 24))){
             Swal.fire(noMbre + " Gracias por tu Reserva!" + " Tu turno es el día " + dIa + " de " + mes + " a las " + horaCorregida + " hs. "+ " Te esperamos" + " 😃.");
         }
+    } */
+    const { value: formDatos } = await Swal.fire({
+        title: 'Ingresa tus Datos',
+        html:
+            '<input id="swal-nombre" class="swal2-input" placeholder="Ingrese su Nombre">' +
+            '<input id="swal-apellido" class="swal2-input" placeholder="Ingrese su Apellido">',
+        focusConfirm: false,
+        preConfirm: () => {
+            return [
+            document.getElementById('swal-nombre').value,
+            document.getElementById('swal-apellido').value
+        ]
+        }
+    })
+    
+    if (formDatos) {
+        Swal.fire(JSON.stringify(formDatos))
+    }
+
+    const { value: fecha } = await Swal.fire({
+        title: 'Julio',
+        input: 'select',
+        inputOptions: {
+        'Dia': {
+            1: '1',
+            2: '2',
+            3: '3',
+            4: '4',            
+            5: '5',
+            6: '6',
+            7: '7',
+            8: '8',
+            9: '9',
+            10: '10',
+            11: '11',
+            12: '12',
+            13: '13',
+            14: '14',
+            15: '15',            
+            16: '16',
+            17: '17',
+            18: '18',
+            19: '19',
+            20: '20',
+            21: '21',
+            22: '22',
+            23: '23',
+            24: '24',
+            25: '25',
+            26: '26',            
+            27: '27',
+            28: '28',
+            29: '29',
+            30: '30',
+            31: '31'
+            },
+        },
+        inputPlaceholder: 'Fechas Disponibles',
+        showCancelButton: true,
+/*         inputValidator: (value) => {
+            return new Promise((resolve) => {
+            if (value === 'oranges') {
+                resolve()
+            } else {
+                resolve('You need to select oranges :)')
+            }
+            })
+        } */
+        })
+
+        const { value: hora } = await Swal.fire({
+            title: 'Horario Disponible',
+            input: 'select',
+            inputOptions: {
+            'Hora': {
+                9: '09:00',
+                10: '10:00',
+                11: '11:00',
+                12: '12:00',
+                13: '13:00',
+                14: '14:00',
+                15: '15:00',            
+                16: '16:00',
+                17: '17:00',
+                18: '18:00',
+                19: '19:00',
+                20: '20:00',
+                21: '21:00',
+                22: '22:00',
+                23: '23:00',
+                24: '24:00'
+                },
+            },
+            inputPlaceholder: 'Horas Disponibles',
+            showCancelButton: true,
+    /*         inputValidator: (value) => {
+                return new Promise((resolve) => {
+                if (value === 'oranges') {
+                    resolve()
+                } else {
+                    resolve('You need to select oranges :)')
+                }
+                })
+            } */
+            })
+        
+        if (fecha) {
+        Swal.fire(`Tu Reserva es el día  ${fecha} de julio a las ${hora}.  Te esperamos 😃`)
     }
 }
 
@@ -161,29 +269,5 @@ peluqueros.sort((i1, i2) => {
 
 console.log(peluqueros);
 
-//Buscar Producto en Shop
-const productos =   [{id: 1, producto: "A", precio: 1000},
-                    {id: 2, producto: "B", precio: 500},
-                    {id: 3, producto: "C", precio: 1500},
-                    {id: 4, producto: "D", precio: 700},
-];
 
-const ingresoProductoA = productos.find(producto => producto.id === 1);
-console.log(ingresoProductoA);
 
-const ingresoProductoB = productos.find(producto => producto.id === 2);
-console.log(ingresoProductoB);
-
-const ingresoProductoC = productos.find(producto => producto.id === 3);
-console.log(ingresoProductoC);
-
-//Ordenar por precios de Prod en Shop Section
-let ordenPrecios = [];
-ordenPrecios = productos.map(e => e);
-let ordPrecios = productos;
-ordenPrecios.sort((p1, p2) => {
-    return p1.precio - p2.precio;
-});
-
-console.log("Precios ordenados en forma Ascendente");
-console.log(ordenPrecios);
