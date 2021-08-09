@@ -1,48 +1,6 @@
-/* class Formservicios{
-        constructor(corte, color, keratina) {
-        this.corte = corte;
-        this.color = color;
-        this.keratina = keratina;
-    }
-    servicios(){
-        console.log("Elegiste " + (this.corte) + " que tiene promocion e incluye " + (this.color) + " o " +(this.keratina));
-    }
-}     
-let corte2 = new Formservicios("carre", "rojo", "keratina");
-corte2.servicios();
-let corte3 = new Formservicios("alisado", "verde", "keratina");
-corte3.servicios(); */
 
 async function solicitar(){
-    /* let noMbre = prompt ("Ingresa tu nombre:");
-    let apeLlido = prompt ("Ingresa tu Apellido:");
-    var dIa = parseInt(prompt("Ingrese día:",0));
-    var hoRa = parseInt(prompt("Ingresa la hora:",0));
-    let mes = "Julio";
 
-    //chequeamos si la fecha es correcta.
-    if ((dIa >= 1) && ((dIa <= 31))){
-        Swal.fire(noMbre + " Gracias por tu Reserva!" + " Tu turno es el día " + dIa + " de " + mes + " a las " + hoRa + " hs. "+ " Te esperamos" + " 😃.");
-    }
-    else {
-        alert("Por favor ingrese una fecha correcta. Disponible del 1 al 31.");
-        let fechaCorregida = parseInt(prompt("Ingrese día:",0));
-        if ((fechaCorregida >= 1) && ((fechaCorregida <= 31))){
-            alert(noMbre + " Gracias por tu Reserva!" + " Tu turno es el día " + fechaCorregida + " de " + mes + " a las " + hoRa + " hs. "+ " Te esperamos" + " 😃.");
-    } 
-    }
-
-    //chequeamos si la hora es correcta.
-    if ((hoRa >= 1) && ((hoRa <= 24))){
-        Swal.fire(noMbre + " Gracias por tu Reserva!" + " Tu turno es el día " + dIa + " de " + mes + " a las " + hoRa + " hs. "+ " Te esperamos" + " 😃.");
-    }
-    else {
-        alert("Por favor ingrese una hora correcta. Abrimos de las 9 a 21 Hs. 😉");
-        let horaCorregida = parseInt(prompt("Ingrese la hora:",0));
-        if ((horaCorregida >= 1) && ((horaCorregida <= 24))){
-            Swal.fire(noMbre + " Gracias por tu Reserva!" + " Tu turno es el día " + dIa + " de " + mes + " a las " + horaCorregida + " hs. "+ " Te esperamos" + " 😃.");
-        }
-    } */
     const { value: formDatos } = await Swal.fire({
         title: 'Ingresa tus Datos',
         html:
@@ -60,6 +18,24 @@ async function solicitar(){
     if (formDatos) {
         Swal.fire(JSON.stringify(formDatos))
     }
+
+//     let flatpickrInstance
+
+// Swal.fire({
+//     title: 'Por favor elige la fecha',
+//     html: '<input class="swal2-input" id="expiry-date">',
+//     stopKeydownPropagation: false,
+//     preConfirm: () => {
+//     if (flatpickrInstance.selectedDates[0] < new Date()) {
+//         Swal.showValidationMessage(`Seleccione una fecha correcta`)
+//     }
+// },
+//     willOpen: () => {
+//     flatpickrInstance = flatpickr(
+//         Swal.getPopup().querySelector('#expiry-date')
+//     )
+//     }
+// }) 
 
     const { value: fecha } = await Swal.fire({
         title: 'Julio',
