@@ -195,55 +195,94 @@ function tiposCortes(){
         }
 } 
 
-//Desafio 6
-//Buscar y encontrar servicios
-const servicios =   [{id: 1, servicio: "Corte", precio: 1000},
-                    {id: 2, servicio: "Color", precio: 500},
-                    {id: 3, servicio: "Peinado", precio: 1500},
-                    {id: 4, servicio: "Alisado", precio: 700},
+// //Desafio 6
+// //Buscar y encontrar servicios
+// const servicios =   [{id: 1, servicio: "Corte", precio: 1000},
+//                     {id: 2, servicio: "Color", precio: 500},
+//                     {id: 3, servicio: "Peinado", precio: 1500},
+//                     {id: 4, servicio: "Alisado", precio: 700},
 
-];
+// ];
 
-const buscarCorte = servicios.find(servicio => servicio.id === 1);
-console.log(buscarCorte);
+// const buscarCorte = servicios.find(servicio => servicio.id === 1);
+// console.log(buscarCorte);
 
-const buscarColor = servicios.find(servicio => servicio.id === 2);
-console.log(buscarColor);
+// const buscarColor = servicios.find(servicio => servicio.id === 2);
+// console.log(buscarColor);
 
-const buscarPeinado = servicios.find(servicio => servicio.id === 3);
-console.log(buscarPeinado);
+// const buscarPeinado = servicios.find(servicio => servicio.id === 3);
+// console.log(buscarPeinado);
 
-const buscarAlisado = servicios.find(servicio => servicio.id === 4);
-console.log(buscarAlisado);
+// const buscarAlisado = servicios.find(servicio => servicio.id === 4);
+// console.log(buscarAlisado);
 
 //Filtar Peluquero
-const peluqueros = [{id: 1, peluquero: "Bruno"},
-                    {id: 2, peluquero: "Pepe"},
-                    {id: 3, peluquero: "Juan"},
-];
+// const peluqueros = [{id: 1, peluquero: "Bruno"},
+//                     {id: 2, peluquero: "Pepe"},
+//                     {id: 3, peluquero: "Juan"},
+// ];
 
-const filtrarPeluquero1 = peluqueros.filter(peluquero => peluquero.id === 1);
-console.log(filtrarPeluquero1);
+// const filtrarPeluquero1 = peluqueros.filter(peluquero => peluquero.id === 1);
+// console.log(filtrarPeluquero1);
 
-const filtrarPeluquero2 = peluqueros.filter(peluquero => peluquero.id === 2);
-console.log(filtrarPeluquero2);
+// const filtrarPeluquero2 = peluqueros.filter(peluquero => peluquero.id === 2);
+// console.log(filtrarPeluquero2);
 
-const filtrarPeluquero3 = peluqueros.filter(peluquero => peluquero.id === 3);
-console.log(filtrarPeluquero3);
-//Desafio 6
+// const filtrarPeluquero3 = peluqueros.filter(peluquero => peluquero.id === 3);
+// console.log(filtrarPeluquero3);
+// //Desafio 6
 
-//Desafio Complementario - Ordenar array de obj
-peluqueros.sort((i1, i2) => {
-    if (i1.peluquero < i2.peluquero) {
-        return 1;
-        } else if (i1.peluquero > i2.peluquero) {
-            return -1;
-        } else {
-            return 0;
-        }
-}); 
+// //Desafio Complementario - Ordenar array de obj
+// peluqueros.sort((i1, i2) => {
+//     if (i1.peluquero < i2.peluquero) {
+//         return 1;
+//         } else if (i1.peluquero > i2.peluquero) {
+//             return -1;
+//         } else {
+//             return 0;
+//         }
+// }); 
 
-console.log(peluqueros);
+// console.log(peluqueros);
 
+//Desafio 11
+$("#bienvenida").append('<div> <h1 class="bien">Nuestros Servicios nos diferencia</h1> </div>'); 
+$(".bien").css({
+    "color": "#5a189a",     
+    "background-color": "white",
+    "opacity": "0.6",
+});
 
+// Desafio 12/13
+//Array de objetos
+const servicios = [{ id: 1,  nombre: "Corte", precio: 1250 },
+{  id: 2,  nombre: "Color", precio: 700},
+{  id: 3,  nombre: "Peinado"  , precio: 500},
+{  id: 4,  nombre: "Alisado" , precio: 1000}];
+// Asociamos el evento click en ready luego del DOM Generado
+$(document).ready(function () {
+    $(".btnComprar").click(function (e) {
+        let hijos = $(e.target).parent().children();
+        console.log(hijos[1].value);
+        $(e.target).parent().toggle("slow");
 
+    });
+});
+
+for (const servicio of servicios) {
+    $("#servicios").append(`
+                        <div class="card ms-5" style="width: 18rem;">
+                            <img src="../img/pelu3.jpeg" class="card-img-top mt-2" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Corte</h5>
+                                <input class="text-dark" value="${servicio.id}" type="hidden">
+                                <h4 class="text-dark">  Servicio: ${servicio.nombre}</h4>
+                                <b> $ ${servicio.precio}</b>
+                                <br>
+                                <button type="button" class="btn btn-success btnComprar mt-3">Contratar</button>
+                            </div>
+                        </div>
+`);
+}
+
+ScrollReveal().reveal('.titBien', { delay: 2000 });

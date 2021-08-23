@@ -108,6 +108,7 @@ window.onload = function () {
     const DOMcarrito = document.querySelector('#carrito');
     const DOMtotal = document.querySelector('#total');
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    // const DOMbotonComprar = document.querySelector('#boton-comprar');
     const miLocalStorage = window.localStorage;
 
     // Funciones
@@ -148,7 +149,7 @@ window.onload = function () {
     }
 
     /**
-    * Evento para añadir un producto al carrito de la compra
+    * Evento para añadir un producto al carrito de compra
     */
     function anyadirProductoAlCarrito(evento) {
         // Anyadimos el Nodo a nuestro carrito
@@ -266,10 +267,32 @@ window.onload = function () {
     renderizarProductos();
     calcularTotal();
     renderizarCarrito();
+
+
+// Desafio 12/13
+
+    // if(carrito == 1) 
+    $(document).ready(function(){
+        $("#boton-comprar").click(function(){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+            
+            Toast.fire({
+                icon: 'success',
+                title: 'Gracias por tu Compra'
+            })
+        });
+    });
 }
-
-
-
 
 //Buscar Producto en Shop
 const productos =   [{id: 1, producto: "A", precio: 1000},
