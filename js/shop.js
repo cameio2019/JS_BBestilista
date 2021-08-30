@@ -269,27 +269,75 @@ window.onload = function () {
     renderizarCarrito();
 
 
-// Desafio 12/13
+// Desafio 14 + entrega 3
 
-    // if(carrito == 1) 
+    
     $(document).ready(function(){
         $("#boton-comprar").click(function(){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-                })
+            // Swal.fire({
+            //     title: 'Por favor ingreso su Pago',
+            //     input: 'text',
+            //     inputAttributes: {
+            //     autocapitalize: 'off'
+            //     },
+            //     showCancelButton: true,
+            //     confirmButtonText: 'Look up',
+            //     showLoaderOnConfirm: true,
+            //     preConfirm: () => {
+            //         return fetch(`https://sandbox.mercadopago.com/mla/checkout/pay?pref_id=202809963-a2201f8d-11cb-443f-adf6-de5a42eed67d`)
+            //         .then(response => {
+            //             if (!response.ok) {
+            //             throw new Error(response.statusText)
+            //             }
+            //             return response.json()
+            //         })
+            //         .catch(error => {
+            //             Swal.showValidationMessage(
+            //             `Request failed: ${error}`
+            //         )
+            //         })
+            //     },
+            //     allowOutsideClick: () => !Swal.isLoading()
+            // }).then((result) => {
+            //     if (result.isConfirmed) {
+            //         Swal.fire({
+            //         title: `${id}'s avatar`,
+            //         imageUrl: result.value.avatar_url
+            //         })
+            //     }
+            // })
             
-            Toast.fire({
-                icon: 'success',
-                title: 'Gracias por tu Compra'
-            })
+            // const Toast = Swal.mixin({
+            //     toast: true,
+            //     position: 'top-end',
+            //     showConfirmButton: false,
+            //     timer: 3000,
+            //     timerProgressBar: true,
+            //     didOpen: (toast) => {
+            //         toast.addEventListener('mouseenter', Swal.stopTimer)
+            //         toast.addEventListener('mouseleave', Swal.resumeTimer)
+            //     }
+            //     })
+            
+            // Toast.fire({
+            //     icon: 'success',
+            //     title: 'Gracias por tu Compra'
+            // })
+                
+        //MP SDK 
+        const mp = new MercadoPago('TEST-a18d84ba-5d28-4d88-9053-4a5e61f1c647', {locale: 'es-AR'});
+        
+        //Web Tokenize Checkout
+        mp.checkout({
+            tokenizer: {
+            totalAmount: 4000,
+            backUrl: 'http://127.0.0.1:5500/paymentMethod.html'
+            },
+            render: {
+            container: '#boton-comprar', 
+            // label: 'Pagar' 
+            }
+        });
         });
     });
 }
@@ -320,3 +368,6 @@ ordenPrecios.sort((p1, p2) => {
 
 console.log("Precios ordenados en forma Ascendente");
 console.log(ordenPrecios);
+
+
+

@@ -129,7 +129,6 @@ async function solicitar(){
     }
 }
 
-
 function verificar(){
     for (let i = 1; i <=5; i++) {
         let nombre2 = prompt("Ingresa tu nombre:");
@@ -286,3 +285,4 @@ for (const servicio of servicios) {
 }
 
 ScrollReveal().reveal('.titBien', { delay: 2000 });
+ScrollReveal().reveal('.desaf14', { delay: 3000 });
