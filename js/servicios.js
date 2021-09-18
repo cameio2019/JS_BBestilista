@@ -1,6 +1,5 @@
-
 window.onload = function () {
-    // Items Json
+    // Variables
     const baseDeDatos = [
         {
             id: 1,
@@ -85,6 +84,7 @@ window.onload = function () {
             DOMitems.appendChild(miNodo);
         });
     }
+
     /**
     * Evento para añadir un producto al carrito de compra
     */
@@ -150,6 +150,7 @@ window.onload = function () {
         calcularTotal();
         // Actualizamos el LocalStorage
         guardarCarritoEnLocalStorage();
+
     }
 
     /**
@@ -171,7 +172,7 @@ window.onload = function () {
     }
 
     /**
-    * Vacia el carrito y vuelve a imprimir
+    * Varia el carrito y vuelve a imprimir
     */
     function vaciarCarrito() {
         carrito = [];
@@ -203,29 +204,4 @@ window.onload = function () {
     renderizarProductos();
     calcularTotal();
     renderizarCarrito();
-
-//Implement. MP API - Sandbox
-
-$(document).ready(function(){
-        $("#boton-comprar").click(function(){
-        //MP SDK 
-        const mp = new MercadoPago('TEST-a18d84ba-5d28-4d88-9053-4a5e61f1c647', {locale: 'es-AR'});
-        
-        //Web Tokenize Checkout
-        mp.checkout({
-            tokenizer: {
-            totalAmount: 4000,
-            backUrl: 'http://127.0.0.1:5500/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver
-            },
-            render: {
-            container: '#boton-comprar', 
-
-            }
-        });
-        });
-    });
 }
-
-
-
-

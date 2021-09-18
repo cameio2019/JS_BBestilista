@@ -5,7 +5,7 @@ $(document).ready(() => {
     $('#getComments').click(function() {
         $.ajax({
             type: 'GET',
-            url: 'https://randomuser.me/api/?results=10',
+            url: './data/sericios.json',
             dataType: 'json'
         }).done((data) => {
             let personas = data.results;

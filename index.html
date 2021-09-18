@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafío 14 JS - Coder House</title>
+    <title>Proyecto Final JS - Coder House</title>
     <link rel="shortcut icon" href="/img/spinner2.gif"/>
     <script src="js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/64657f89f8.js" crossorigin="anonymous"></script> 
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>    
     <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
@@ -29,18 +30,19 @@
             <div class="row justify-content-center m-1">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold text-center" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold text-center" href="#">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold text-center" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold text-center" href="#" onclick="solicitar();">Turnos</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold text-center" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold text-center" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" href="#">Turnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" style="text-decoration:none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <i class="nav-link active fa fa-shopping-cart mt-1"><span class="counter text-center ms-1">0</span></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -49,13 +51,135 @@
 </header>
     
     <!-- <h1>Bienvenido a BB Estilista</h1> -->
-    <div id="bienvenida" class="titBien"></div>
+    <div id="bienvenida" class="titBien text-center"></div>
 
-    <div class="m-0 row justify-content-center">
+    <!-- <div class="m-0 row justify-content-center">
         <div class="col-auto p-3 btn btn-dark text-center mt-5 desaf14 mb-4"><a href="usersReg.html" style="text-decoration:none">Usuarios Registrados</a></div>
-    </div>
+    </div> -->
     
-    <div id="servicios"></div>
+    <div class="d-flex justify-content-center mt-5 me-5 mb-5">
+        <div class="row">
+            <div class="product--blue">
+                <div class="product_inner">
+                    <img src="/img/pelu3.jpeg" width="400">
+                    <p>Corte</p>
+                    <p class="mb-1">$1000</p>
+                    <button class="addContador">AGREGAR</button>
+                </div>
+                <div class="product_overlay">
+                    <h2>Agregado al Carrito</h2>
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="product--pink">
+                <div class="product_inner">
+                    <img src="/img/pelu4.jpeg" width="400" style="height: 300px;">
+                    <p>Color</p>
+                    <p class="mb-1">$2000</p>
+                    <button class="addContador mb-5">AGREGAR</button>
+                </div>
+                <div class="product_overlay">
+                    <h2>Agregado al Carrito</h2>
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="product--green">
+                <div class="product_inner">
+                    <img src="/img/peinado.jpeg" width="400">
+                    <p>Peinado</p>
+                    <p class="mb-1">$3000</p>
+                    <button class="addContador">AGREGAR</button>
+                </div>
+                <div class="product_overlay">
+                    <h2>Agregado al Carrito</h2>
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="product--red">
+                <div class="product_inner">
+                    <img src="/img/pelu2-min.jpg" width="400">
+                    <p>Alisado</p>
+                    <p class="mb-1">$1500</p>
+                    <button class="addContador">AGREGAR</button>
+                </div>
+                <div class="product_overlay">
+                    <h2>Agregado al Carrito</h2>
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalForm">
+                    <form id="turnos-form">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellido">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Día:</label>
+                            <input type="text" class="form-control" id="dia">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Hora:</label>
+                            <input type="text" class="form-control" id="hora">
+                        </div>
+                            
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Comentario:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-dark" onclick="solicitar();">Solicitar</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Ckeckout</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                    <!-- Carrito -->
+                <aside class="justify-content-center">
+                    <div class="container" style="font-size: 3rem; color: white;"></div>
+                    <!-- Elementos del carrito -->
+                    <ul id="carrito" class="list-group"></ul>
+                        <hr>
+                    <!-- Precio total -->
+                    <p class="text-right text-dark">Total: <span id="total"></span>$</p>
+                    <button id="boton-vaciar" class="btn btn-danger">Vaciar Carrito</button>
+                    <div  id="boton-comprar2" class="btn mercadopago-button">Comprar</div>
+                </aside>            
+            </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>    
@@ -64,5 +188,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/sweetA.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
 </body>
 </html>
