@@ -72,9 +72,11 @@ window.onload = function () {
             miNodoPrecio.textContent = info.precio + '$';
             // Boton 
             const miNodoBoton = document.createElement('button');
-            miNodoBoton.classList.add('btn', 'btn-dark', 'align-items-center');
+            miNodoBoton.classList.add('btn', 'btn-dark', 'align-items-center', 'addContador');
             miNodoBoton.textContent = 'Agregar';
             miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', prodAdd);
+            miNodoBoton.setAttribute('onclick', 'agregarAlcarrito();');
             miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
             // Agregar
             miNodoCardBody.appendChild(miNodoImagen);
@@ -83,7 +85,7 @@ window.onload = function () {
             miNodoCardBody.appendChild(miNodoBoton);
             miNodo.appendChild(miNodoCardBody);
             DOMitems.appendChild(miNodo);
-        });
+        });  
     }
     /**
     * Evento para añadir un producto al carrito de compra
@@ -205,7 +207,6 @@ window.onload = function () {
     renderizarCarrito();
 
 //Implement. MP API - Sandbox
-
 $(document).ready(function(){
         $("#boton-comprar").click(function(){
         //MP SDK 
@@ -226,6 +227,64 @@ $(document).ready(function(){
     });
 }
 
+const  prodAdd = ()=>{
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    
+    Toast.fire({
+        icon: 'success',
+        position: 'bottom-end',
+        title: 'Producto agregado al carrito!'
+    })
+}
 
+const deleteProd  = () =>{
+    Swal.fire({
+        title: 'Vaciar el Carrito?',
+        icon: 'warning',
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, vaciarlo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Carrito Limpio!',
+            'Tu carrito de compras fue borrado.',
+            'success'
+        )
+        }
+    })
+}
 
+// Funcion Agregar al carrito
+function agregarAlcarrito() {
+    let init = "0";
+    let counter = 0;
+
+    $(".counter").html(init);
+    {
+        counter++;
+        $(".counter").html(counter).animate({
+        'opacity' : '0'
+        },300, function() {
+        $(".counter").delay(300).animate({
+            'opacity' : '1'
+        })
+        })
+    }
+
+}
+    
 

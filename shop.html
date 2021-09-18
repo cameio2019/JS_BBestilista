@@ -36,7 +36,7 @@
                         <a class="nav-link active fw-bold text-center" href="#">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" href="#">Turnos</a>
+                        <a class="nav-link fw-bold text-center" href="#" onclick="solicitar();">Turnos</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" style="text-decoration:none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="nav-link active fa fa-shopping-cart mt-1">
@@ -113,7 +113,7 @@
                         <hr>
                     <!-- Precio total -->
                     <p class="text-right text-dark">Total: <span id="total"></span>$</p>
-                    <button id="boton-vaciar" class="btn btn-danger">Vaciar Carrito</button>
+                    <button id="boton-vaciar" class="btn btn-danger" onclick="deleteProd();">Vaciar Carrito</button>
                     <div  id="boton-comprar" class="btn mercadopago-button">Comprar</div>
                 </aside>
             </div>

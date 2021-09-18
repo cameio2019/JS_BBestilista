@@ -37,10 +37,10 @@
                             <a class="nav-link active fw-bold text-center" href="shop.html">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" href="#">Turnos</a>
+                            <a class="nav-link fw-bold text-center" href="#" onclick="solicitar();">Turnos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" style="text-decoration:none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <a href="shop.html" style="text-decoration:none;">
                                 <i class="nav-link active fa fa-shopping-cart mt-1"><span class="counter text-center ms-1">0</span></i></a>
                         </li>
                     </ul>
@@ -50,13 +50,8 @@
 </nav> 
 </header>
     
-    <!-- <h1>Bienvenido a BB Estilista</h1> -->
     <div id="bienvenida" class="titBien text-center"></div>
 
-    <!-- <div class="m-0 row justify-content-center">
-        <div class="col-auto p-3 btn btn-dark text-center mt-5 desaf14 mb-4"><a href="usersReg.html" style="text-decoration:none">Usuarios Registrados</a></div>
-    </div> -->
-    
     <div class="d-flex justify-content-center mt-5 me-5 mb-5">
         <div class="row">
             <div class="product--blue">
@@ -64,10 +59,10 @@
                     <img src="/img/pelu3.jpeg" width="400">
                     <p>Corte</p>
                     <p class="mb-1">$1000</p>
-                    <button class="addContador">AGREGAR</button>
+                    <button class="addContador" onclick="gracias();">CONTRATAR</button>
                 </div>
                 <div class="product_overlay">
-                    <h2>Agregado al Carrito</h2>
+                    <h2>Gracias!</h2>
                     <i class="fa fa-check"></i>
                 </div>
             </div>
@@ -79,10 +74,10 @@
                     <img src="/img/pelu4.jpeg" width="400" style="height: 300px;">
                     <p>Color</p>
                     <p class="mb-1">$2000</p>
-                    <button class="addContador mb-5">AGREGAR</button>
+                    <button class="addContador mb-5" onclick="gracias();">CONTRATAR</button>
                 </div>
                 <div class="product_overlay">
-                    <h2>Agregado al Carrito</h2>
+                    <h2>Gracias!</h2>
                     <i class="fa fa-check"></i>
                 </div>
             </div>
@@ -94,10 +89,10 @@
                     <img src="/img/peinado.jpeg" width="400">
                     <p>Peinado</p>
                     <p class="mb-1">$3000</p>
-                    <button class="addContador">AGREGAR</button>
+                    <button class="addContador" onclick="gracias();">CONTRATAR</button>
                 </div>
                 <div class="product_overlay">
-                    <h2>Agregado al Carrito</h2>
+                    <h2>Gracias!</h2>
                     <i class="fa fa-check"></i>
                 </div>
             </div>
@@ -109,56 +104,15 @@
                     <img src="/img/pelu2-min.jpg" width="400">
                     <p>Alisado</p>
                     <p class="mb-1">$1500</p>
-                    <button class="addContador">AGREGAR</button>
+                    <button class="addContador" onclick="gracias();">CONTRATAR</button>
                 </div>
                 <div class="product_overlay">
-                    <h2>Agregado al Carrito</h2>
+                    <h2>Gracias!</h2>
                     <i class="fa fa-check"></i>
                 </div>
             </div>
         </div>
     </div> 
-
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Reserva</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="modalForm">
-                    <form id="turnos-form">
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Apellido:</label>
-                            <input type="text" class="form-control" id="apellido">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Día:</label>
-                            <input type="text" class="form-control" id="dia">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Hora:</label>
-                            <input type="text" class="form-control" id="hora">
-                        </div>
-                            
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Comentario:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-dark" onclick="solicitar();">Solicitar</button>
-                    </div>
-            </div>
-        </div>
-    </div>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
