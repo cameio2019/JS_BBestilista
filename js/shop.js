@@ -6,37 +6,37 @@ window.onload = function () {
             id: 1,
             nombre: 'Shampoo',
             precio: 1000,
-            imagen: '../img/Shampoo Silver.jpeg'
+            imagen: 'img/Shampoo Silver.jpeg'
         },
         {
             id: 2,
             nombre: 'Mascara',
             precio: 1200,
-            imagen: '../img/Mascara Vitaminocolor.jpeg'
+            imagen: 'img/Mascara Vitaminocolor.jpeg'
         },
         {
             id: 3,
             nombre: 'Ampolla',
             precio: 1500,
-            imagen: '../img/Ampolla Powerdose Repair.jpg'
+            imagen: 'img/Ampolla Powerdose Repair.jpg'
         },
         {
             id: 4,
             nombre: 'Gel',
             precio: 700,
-            imagen: '../img/art depolish.jpeg'
+            imagen: 'img/art depolish.jpeg'
         },
         {
             id: 5,
             nombre: 'Mascara',
             precio: 800,
-            imagen: '../img/small talk tigi.jpg'
+            imagen: 'img/small talk tigi.jpg'
         },
         {
             id: 6,
             nombre: 'Oil',
             precio: 750,
-            imagen: '../img/Marula Oil.jpg'
+            imagen: 'img/Marula Oil.jpg'
         }
 
     ];
