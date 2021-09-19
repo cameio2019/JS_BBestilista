@@ -1,6 +1,7 @@
 const  solicitar = ()=>{ 
     const { value:dia, value:hora } =  Swal.fire({
         title: 'Reserva de Turno',
+        confirmButtonText: 'Enviar',
         showCloseButton: true,
         html:
             '<input id="nombre" placeholder="Nombre" class="swal2-input">' +
@@ -80,7 +81,7 @@ $(document).ready(function(){
     mp.checkout({
         tokenizer: {
         totalAmount: 4000,
-        backUrl: 'http://127.0.0.1:5500/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver
+        backUrl: 'https://cameio2019.github.io/JS_BBestilista/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver
         },
         render: {
         container: '#boton-comprar2', 

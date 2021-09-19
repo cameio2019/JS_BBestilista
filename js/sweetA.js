@@ -1,4 +1,4 @@
-//Mensaje de Bienvenida - Desaf 8
+//Mensaje de Bienvenida 
 Swal.fire({
     title: 'Bienvenido!',
     imageUrl: 'img/logo1.jpeg',
