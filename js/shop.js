@@ -69,7 +69,7 @@ window.onload = function () {
             // Precio
             const miNodoPrecio = document.createElement('p');
             miNodoPrecio.classList.add('card-text');
-            miNodoPrecio.textContent = info.precio + '$';
+            miNodoPrecio.textContent =  '$' + info.precio;
             // Boton 
             const miNodoBoton = document.createElement('button');
             miNodoBoton.classList.add('btn', 'btn-dark', 'align-items-center', 'addContador');
