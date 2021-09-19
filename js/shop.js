@@ -216,7 +216,7 @@ $(document).ready(function(){
         mp.checkout({
             tokenizer: {
             totalAmount: 4000,
-            backUrl: 'https://cameio2019.github.io/JS_BBestilista/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver, y con backend.
+            backUrl: 'https://cameio2019.github.io/JS_BBestilista/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver, y con backend implementado.
             },
             render: {
             container: '#boton-comprar', 
@@ -284,7 +284,6 @@ function agregarAlcarrito() {
         })
         })
     }
-
 }
     
 
