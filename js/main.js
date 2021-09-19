@@ -18,8 +18,20 @@ const  solicitar = ()=>{
             document.getElementById('hora').value,
             document.getElementById('comentario').value,
 
-            Swal.fire(`Tu Reserva fue realizada con éxito. 
-                        Te esperamos 😃`)
+            // Swal.fire(`Tu Reserva fue realizada con éxito. 
+            //             Te esperamos 😃`)
+
+            Swal.fire({
+                title: 'Tu Reserva fue realizada con éxito. Te esperamos 😃!',
+                showCloseButton: true,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+                showCloseButton: true,
+                backdrop: true,
+                timerProgressBar: true,
+                allowOutsideClick: false
+            }
+            )
         ]
         }
     })
@@ -81,7 +93,7 @@ $(document).ready(function(){
     mp.checkout({
         tokenizer: {
         totalAmount: 4000,
-        backUrl: 'https://cameio2019.github.io/JS_BBestilista/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver
+        backUrl: 'https://cameio2019.github.io/JS_BBestilista/paymentMethod.html' //el redirect funciona cuando se encuentra en Webserver  y con backend.
         },
         render: {
         container: '#boton-comprar2', 
