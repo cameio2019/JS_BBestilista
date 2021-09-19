@@ -1,6 +1,7 @@
 const  solicitar = ()=>{ 
     const { value:dia, value:hora } =  Swal.fire({
         title: 'Reserva de Turno',
+        showCloseButton: true,
         html:
             '<input id="nombre" placeholder="Nombre" class="swal2-input">' +
             '<input id="apellido" placeholder="Apellido" class="swal2-input">' +
@@ -20,8 +21,15 @@ const  solicitar = ()=>{
                         Te esperamos 😃`)
         ]
         }
-
     })
+
+    if (dia) {
+        Swal.fire(JSON.stringify(dia))
+    }
+
+    if (hora) {
+        Swal.fire(JSON.stringify(hora))
+    }
 };
 
 // Funcion Agregar al carrito
